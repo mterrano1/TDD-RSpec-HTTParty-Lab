@@ -44,4 +44,42 @@ describe Countries do
             end
         end
     end
+
+    describe '.transform_data' do
+        let(:sample_response) { JSON.parse(File.read('spec/fixtures/countries.json')) }
+
+        it 'returns an array' do
+            transformed_data = Countries.transform_data(sample_response)
+            expect(transformed_data).to be_an(Array)
+        end
+
+        it 'transforms the common name correctly' do
+            transformed_data = Countries.transform_data(sample_response)
+            expect(transformed_data.first[:name]).to eq('Guernsey')
+        end
+
+        it 'transforms the population correctly' do
+            transformed_data = Countries.transform_data(sample_response)
+            expect(transformed_data.first[:population]).to eq(62999)
+        end
+
+        it 'transforms the flags png correctly' do
+            transformed_data = Countries.transform_data(sample_response)
+            expect(transformed_data.first[:flags]).to eq('https://flagcdn.com/w320/gg.png')
+        end
+
+        it 'transforms the languages correctly' do
+            transformed_data = Countries.transform_data(sample_response)
+            expect(transformed_data.first[:languages]).to eq({
+                "eng" => "English",
+                "fra" => "French",
+                "nfr" => "Guernésiais"
+            })
+        end
+
+        it 'transforms the capital correctly' do
+            transformed_data = Countries.transform_data(sample_response)
+            expect(transformed_data.first[:capital]).to eq('St. Peter Port')
+        end
+    end
 end
