@@ -33,5 +33,15 @@ describe Countries do
                 expect(response_array.first).to include("name", "population", "flags", "languages", "capital") 
             end
         end
+
+        context 'when the API responds with an error' do
+            before do
+                stub_request(:get, 'https://restcountries.com/v3.1/subregion/Northern%20Europe').to_return(status: 500)
+            end
+
+            it 'raises a runtime error' do
+                expect { Countries.fetch_data }.to raise_error(RuntimeError, 'API request failed')
+            end
+        end
     end
 end
