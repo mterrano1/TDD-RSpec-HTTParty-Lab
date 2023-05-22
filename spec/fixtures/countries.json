@@ -1,0 +1,33 @@
+[
+    {
+      "name": {
+        "common": "Guernsey",
+        "official": "Bailiwick of Guernsey"
+      },
+      "capital": ["St. Peter Port"],
+      "population": 62999,
+      "languages": {
+        "eng": "English",
+        "fra": "French",
+        "nfr": "Guernésiais"
+      },
+      "flags": {
+        "png": "https://flagcdn.com/w320/gg.png"
+      }
+    },
+    {
+      "name": {
+        "common": "Faroe Islands",
+        "official": "Faroe Islands"
+      },
+      "capital": ["Tórshavn"],
+      "population": 48865,
+      "languages": {
+        "dan": "Danish",
+        "fao": "Faroese"
+      },
+      "flags": {
+        "png": "https://flagcdn.com/w320/fo.png"
+      }
+    }
+]
